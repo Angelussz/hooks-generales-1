@@ -4,7 +4,7 @@ export const ShowIncrement = React.memo(({increment}) => {
     console.log("me volvi a generar")
   return (
     <button onClick={()=>{
-        increment()
+        increment(5)
     }}>
         Incrementar
     </button>

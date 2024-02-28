@@ -13,6 +13,7 @@ import './index.css'
 // import { Memorize } from './06-memo/Memorize'
 import { MemoHook } from './06-memo/MemoHook'
 import { CallBackHook } from './06-memo/CallBackHook'
+import { Padre } from './07-tarea-memo/Padre'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -26,6 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Layout /> */}
     {/* <Memorize /> */}
     {/* <MemoHook /> */}
-    <CallBackHook />
+    {/* <CallBackHook /> */}
+    <Padre />
+
   </React.StrictMode>,
 )
