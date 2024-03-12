@@ -2,45 +2,54 @@ import React, { useEffect, useReducer } from "react";
 import { todoReducer } from "./todoReducer";
 import { TodoList } from "./TodoList";
 import { TodoAdd } from "./TodoAdd";
-const InitialState = [
-  {
-    id: new Date().getTime(),
-    description: "Recolectar gema del alma",
-    done: false,
-  },
-  {
-    id: new Date().getTime() * 3,
-    description: "Devolver gema del alma",
-    done: false,
-  },
-];
+import { useTodos } from "../hooks";
+// const InitialState = [
+// ];
 
+// const initValue = ()=>{
+//   return JSON.parse(localStorage.getItem("todos")) || [];
+// }
 
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, InitialState);
-  useEffect(() => {
-    console.log(todos)
+  const {todos,todosCount,pendingTodos,handleDeleteTodo,handleToggleTodo,onNewTodo} = useTodos()
+  // LOS COMENTARIOS SON SIN CUSTOMHOOKS
+  // const [todos, dispatch] = useReducer(todoReducer, InitialState,initValue);
+  // useEffect(() => {
+  //   localStorage.setItem("todos",JSON.stringify(todos))
   
-  }, [todos])
+  // }, [todos])
   
-  const onNewTodo = (todo)=>{
-      const action = {
-        type:"[TODO] Add Todo",
-        payload: todo
-      }
-      dispatch(action)
-      
-  }
+  // const onNewTodo = (todo)=>{
+  //     const action = {
+  //       type:"[TODO] Add Todo",
+  //       payload: todo
+  //     }
+  //     dispatch(action) 
+  // }
+  // const handleDeleteTodo = (id)=>{
+  //   // console.log(id)
+  //   dispatch({
+  //     type:"[TODO] Remove Todo",
+  //     payload: id
+  //   })
+  // }
+  // const handleToggleTodo = (id)=>{
+  //   // console.log({id})
+  //   dispatch({
+  //     type:"[TODO] Toggle Todo",
+  //     payload: id
+  //   })
+  // }
 
   return (
     <>
       <h1>
-        TodoApp: (10) <small>pendientes: 2</small>{" "}
+        TodoApp: ({todosCount()}) <small>pendientes: {pendingTodos()}</small>{" "}
       </h1>
       <hr />
       <div className="row">
         <div className="col-7">
-          <TodoList todos={todos} />
+          <TodoList todos={todos} onDeleteTodo= {handleDeleteTodo} onToggleTodo={handleToggleTodo}/>
         </div>
         <div className="col-5">
           <h4>Agregar TODO</h4>
