@@ -17,7 +17,7 @@ export const MultipleCustomHooks = () => {
       ) : (
         <Quote author={author} quote={quote} />
       )}
-      <button className="btn btn-primary" onClick={()=>{
+      <button className="btn btn-primary" disabled = {isLoading} onClick={()=>{
         if(counter>=5){
           reset();
           return

@@ -43,7 +43,7 @@ export const useTodos = () => {
     handleDeleteTodo,
     handleToggleTodo,
     onNewTodo,
-    todosCount,
-    pendingTodos
+    todosCount:todos.length,
+    pendingTodos:todos.filter(todo=> !todo.done).length
   };
 };

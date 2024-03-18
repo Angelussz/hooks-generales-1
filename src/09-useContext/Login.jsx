@@ -7,7 +7,7 @@ export const Login = () => {
     <>
       <h1>Login</h1>
       <hr />
-      <pre>
+      <pre aria-label="preLogin">
         {JSON.stringify(user, null,3)}
       </pre>
       <button className="btn btn-primary"
